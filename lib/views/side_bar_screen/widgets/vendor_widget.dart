@@ -3,6 +3,8 @@ import 'package:admin_panel_app_web/models/vendor.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../resource/themes/app_colors.dart';
+
 class VendorWidget extends StatefulWidget {
   const VendorWidget({super.key});
 
@@ -29,19 +31,19 @@ class _BuyerWidggetStates extends State<VendorWidget> {
         } else if (snapshot.hasError) {
           return Center(child: Text("Error: ${snapshot.error}"));
         } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-          return const Center(child: Text("No Vendors Found"));
+          return const Center(child: Text("Không có nhà cung cấp"));
         } else {
           final vendors = snapshot.data!;
           return Padding(
             padding: const EdgeInsets.symmetric(
-                horizontal: 16), // Cách trái/phải 16px
+                horizontal: 16),
             child: GridView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 4,
-                crossAxisSpacing: 16, // Tăng khoảng cách giữa các cột
-                mainAxisSpacing: 16, // Tăng khoảng cách giữa các hàng
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
                 childAspectRatio: 0.8,
               ),
               itemCount: vendors.length,
@@ -104,17 +106,34 @@ class _BuyerWidggetStates extends State<VendorWidget> {
                         textAlign: TextAlign.center,
                       ),
                       const Spacer(),
-                      TextButton(
-                        onPressed: () {
-                          // xử lý xóa
-                        },
-                        style: TextButton.styleFrom(
-                          padding: EdgeInsets.zero,
-                          minimumSize: const Size(50, 30),
+                      Container(
+                        width: 150,
+                        child: TextButton(
+                          onPressed: () {
+                            // TODO: Thêm logic xóa người dùng ở đây
+                          },
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(AppColors.bluePrimary),
+                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            ),
+                            padding: MaterialStateProperty.all<EdgeInsets>(
+                              const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+                            ),
+                          ),
+                          child: Text(
+                            "Xóa nhà cung cấp",
+                            style: GoogleFonts.montserrat(
+                              fontSize: 12,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
-                        child: const Text("Delete",
-                            style: TextStyle(fontSize: 12)),
                       ),
+
                     ],
                   ),
                 );

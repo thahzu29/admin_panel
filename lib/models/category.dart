@@ -16,7 +16,7 @@ class Category {
   // Chuyển đổi từ Object sang Map (Gửi API)
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      '_id': id,
+      'id': id,
       'name': name,
       'image': image,
       'banner': banner,

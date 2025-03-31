@@ -1,5 +1,6 @@
 import 'package:admin_panel_app_web/controllers/buyer_controller.dart';
 import 'package:admin_panel_app_web/models/buyer.dart';
+import 'package:admin_panel_app_web/resource/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -33,13 +34,12 @@ class _BuyerWidggetStates extends State<BuyerWidget> {
         } else {
           final buyers = snapshot.data!;
           return Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 16), // Cách trái/phải
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             child: GridView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 4, // 4 thẻ mỗi hàng
+                crossAxisCount: 4,
                 crossAxisSpacing: 16,
                 mainAxisSpacing: 16,
                 childAspectRatio: 0.8,
@@ -78,7 +78,15 @@ class _BuyerWidggetStates extends State<BuyerWidget> {
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        "${buyer.state}, ${buyer.city}",
+                        buyer.email,
+                        style: GoogleFonts.montserrat(
+                          fontSize: 12,
+                          color: Colors.grey[600],
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      Text(
+                        buyer.phone,
                         style: GoogleFonts.montserrat(
                           fontSize: 12,
                           color: Colors.grey[700],
@@ -87,24 +95,40 @@ class _BuyerWidggetStates extends State<BuyerWidget> {
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        buyer.email,
+                        buyer.address,
                         style: GoogleFonts.montserrat(
                           fontSize: 12,
-                          color: Colors.grey[600],
+                          color: Colors.grey[700],
                         ),
                         textAlign: TextAlign.center,
                       ),
                       const Spacer(),
-                      TextButton(
-                        onPressed: () {
-                          // TODO: xử lý xóa Buyer
-                        },
-                        style: TextButton.styleFrom(
-                          padding: EdgeInsets.zero,
-                          minimumSize: const Size(50, 30),
+                      Container(
+                        width: 150,
+                        child: TextButton(
+                          onPressed: () {
+                            // TODO: Thêm logic xóa người dùng ở đây
+                          },
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(AppColors.bluePrimary),
+                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            ),
+                            padding: MaterialStateProperty.all<EdgeInsets>(
+                              const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+                            ),
+                          ),
+                          child: Text(
+                            "Xóa người dùng",
+                            style: GoogleFonts.montserrat(
+                              fontSize: 12,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
-                        child: const Text("Delete",
-                            style: TextStyle(fontSize: 12)),
                       ),
                     ],
                   ),

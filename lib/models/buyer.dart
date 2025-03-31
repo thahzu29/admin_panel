@@ -4,47 +4,51 @@ class Buyer {
   final String id;
   final String fullName;
   final String email;
-  final String state;
-  final String city;
-  final String locality;
+  final String phone;
+  final String image;
+  final String address;
   final String password;
-  final String token;
 
-  Buyer(
-      {required this.id,
-      required this.fullName,
-      required this.email,
-      required this.state,
-      required this.city,
-      required this.locality,
-      required this.password,
-      required this.token});
+  Buyer({
+    required this.id,
+    required this.fullName,
+    required this.email,
+    required this.phone,
+    required this.image,
+    required this.address,
+    required this.password,
+  });
 
+  // Chuyen doi doi tuong Buyer thanh Map<String, dynamic>
   Map<String, dynamic> toMap() {
-    return <String, dynamic>{
+    return {
       'id': id,
       'fullName': fullName,
       'email': email,
-      'state': state,
-      'locality': locality,
-      'city': city,
+      'phone': phone,
+      'image': image,
+      'address': address,
       'password': password,
-      'token': token,
     };
   }
 
+  // Tao doi tuong Buyer tu Map<String, dynamic>
   factory Buyer.fromMap(Map<String, dynamic> map) {
     return Buyer(
-      id: map['id'] as String? ?? '',
-      fullName: map['fullName'] as String? ?? '',
-      email: map['email'] as String? ?? '',
-      state: map['state'] as String? ?? '',
-      city: map['city'] as String? ?? '',
-      locality: map['locality'] as String? ?? '',
-      password: map['password'] as String? ?? '',
-      token: map['token'] as String? ?? '',
+      id: map['id']?.toString() ?? '',
+      fullName: map['fullName']?.toString() ?? '',
+      email: map['email']?.toString() ?? '',
+      phone: map['phone']?.toString() ?? '',
+      image: map['image']?.toString() ?? '',
+      address: map['address']?.toString() ?? '',
+      password: map['password']?.toString() ?? '',
     );
   }
 
-  String toJson() => json.encode(toMap());
+  // Chuyen doi doi tuong Buyer thanh chuoi JSON
+  String toJson() => jsonEncode(toMap());
+
+  // Tao doi tuong Buyer tu chuoi JSON
+  factory Buyer.fromJson(String source) =>
+      Buyer.fromMap(jsonDecode(source) as Map<String, dynamic>);
 }

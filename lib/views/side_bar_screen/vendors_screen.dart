@@ -8,29 +8,7 @@ class VendorsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget rowHeader(int flex, String text) {
-      return Expanded(
-        flex: flex,
-        child: Container(
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey.shade700),
-            color: const Color(
-              0xFF3C55EF,
-            ),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(8),
-            child: Text(
-              text,
-              style: GoogleFonts.montserrat(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
-        ),
-      );
-    }
+
 
     return SingleChildScrollView(
       child: Column(
@@ -39,7 +17,7 @@ class VendorsScreen extends StatelessWidget {
           Container(
             alignment: Alignment.topLeft,
             child: Text(
-              'Manage Vendors',
+              'Quản lý nhà cung cấp',
               style: GoogleFonts.montserrat(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,

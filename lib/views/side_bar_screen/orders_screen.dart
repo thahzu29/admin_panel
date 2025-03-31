@@ -1,4 +1,5 @@
 import 'package:admin_panel_app_web/views/side_bar_screen/widgets/buyer_widget.dart';
+import 'package:admin_panel_app_web/views/side_bar_screen/widgets/order_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -51,16 +52,17 @@ class OrdersScreen extends StatelessWidget {
           ),
           Row(
             children: [
-              rowHeader(2, 'Product Image'),
-              rowHeader(3, 'Product Name'),
-              rowHeader(2, 'Product Price'),
-              rowHeader(3, 'Product Category'),
-              rowHeader(3, 'Buyer Name'),
-              rowHeader(2, 'Buyer Email'),
-              rowHeader(2, 'Buyer Address'),
-              rowHeader(1, 'Status'),
+              rowHeader(2, 'Ảnh sản phẩm'),
+              rowHeader(3, 'Sản phẩm'),
+              rowHeader(2, 'Giá'),
+              rowHeader(2, 'Danh mục hàng'),
+              rowHeader(2, 'Người mua'),
+              rowHeader(2, 'Email '),
+              rowHeader(2, 'Địa chỉ'),
+              rowHeader(2, 'Trạng thái'),
             ],
           ),
+      const    OrderWidget(),
         ],
       ),
     );

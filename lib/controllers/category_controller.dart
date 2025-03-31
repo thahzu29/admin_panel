@@ -40,10 +40,10 @@ class CategoryController {
       }
       );
       manageHttpResponse(response: response, context: context, onSuccess: (){
-        showSnackBar(context, 'Uploaded Category');
+        showSnackBar(context, 'Tải thành công');
       });
     } catch (e) {
-      print("Error uploading to cloudinary:$e");
+      print("Lỗi  tải lên cloudinary:$e");
     }
   }
      // load the uploaded category
@@ -66,10 +66,10 @@ class CategoryController {
 
       return categories;
     } else {
-      throw Exception('Failed to load categories. Status code: ${response.statusCode}');
+      throw Exception('Không tải được danh mục.. Status code: ${response.statusCode}');
     }
   } catch (e) {
-    throw Exception("Error loading categories: ${e.toString()}");
+    throw Exception("Lỗi tải danh mục: ${e.toString()}");
   }
 }
 

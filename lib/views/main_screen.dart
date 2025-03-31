@@ -1,5 +1,5 @@
 import 'package:admin_panel_app_web/common/widgets/custom_search.dart';
-import 'package:admin_panel_app_web/resource/app_images.dart';
+import 'package:admin_panel_app_web/resource/asset/app_images.dart';
 import 'package:admin_panel_app_web/views/side_bar_screen/buyers_screen.dart';
 import 'package:admin_panel_app_web/views/side_bar_screen/category_screen.dart';
 import 'package:admin_panel_app_web/views/side_bar_screen/orders_screen.dart';

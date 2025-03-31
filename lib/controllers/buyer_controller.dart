@@ -8,7 +8,7 @@ class BuyerController {
   Future<List<Buyer>> loadBuyer() async {
     try {
       http.Response response = await http.get(
-        Uri.parse('$uri/api/users'),
+        Uri.parse('$uri/api/user'),
         headers: <String, String>{
           "Content-Type": 'application/json; charset=UTF-8'
         },
@@ -18,7 +18,7 @@ class BuyerController {
         List<dynamic> data = jsonDecode(response.body);
 
         List<Buyer> buyers = data.map((buyer) {
-          return Buyer.fromMap(buyer); // Không cần decode nữa
+          return Buyer.fromMap(buyer);
         }).toList();
 
         return buyers;

@@ -18,7 +18,7 @@ class VendorController {
         List<dynamic> data = jsonDecode(response.body);
 
         List<Vendor> vendors = data.map((vendor) {
-          return Vendor.fromMap(vendor); // Không cần decode nữa
+          return Vendor.fromMap(vendor);
         }).toList();
 
         return vendors;
