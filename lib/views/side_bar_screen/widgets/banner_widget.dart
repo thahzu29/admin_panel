@@ -38,7 +38,7 @@ class _BannerWidgetState extends State<BannerWidget> {
             return GridView.builder(
               shrinkWrap: true,
               itemCount: banners.length,
-              gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 4,
                 crossAxisSpacing: 4,
                 mainAxisSpacing: 4,

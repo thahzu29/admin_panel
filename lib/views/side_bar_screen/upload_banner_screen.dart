@@ -1,5 +1,5 @@
 import 'package:admin_panel_app_web/controllers/banner_controller.dart';
-import 'package:admin_panel_app_web/views/banner_widget.dart';
+import 'package:admin_panel_app_web/views/side_bar_screen/widgets/banner_widget.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
@@ -68,8 +68,9 @@ class _UploadBannerScreenState extends State<UploadBannerScreen> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ElevatedButton(
-                  onPressed: ()async {
-                      await _bannerController.uploadBanner(pickImage: _image, context: context);
+                  onPressed: () async {
+                    await _bannerController.uploadBanner(
+                        pickImage: _image, context: context);
                   },
                   child: Text("Save"),
                 ),
@@ -85,8 +86,10 @@ class _UploadBannerScreenState extends State<UploadBannerScreen> {
               ),
             ],
           ),
-        const   Divider(color: Colors.grey,),
-         const BannerWidget(),
+          const Divider(
+            color: Colors.grey,
+          ),
+          const BannerWidget(),
         ],
       ),
     );
